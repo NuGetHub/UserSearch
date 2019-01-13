@@ -83,7 +83,7 @@ function finduser(username) {
         this.addEventListener('load', function() {
             if(this.responseURL.search(/tags=[a-zA-Z0-9]*\b/g) !== -1) {
                 var searchedTags = this.responseURL.substring(this.responseURL.search(/tags=[a-zA-Z0-9]*\b/g), this.responseURL.length).replace("tags=", "");
-                if (searchedTags.match(/^[a-zA-z0-9]*$/)) {
+                if (searchedTags.match(/^[a-zA-Z0-9]*$/)) {
                     finduser(searchedTags);
                 }
             }
