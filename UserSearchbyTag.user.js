@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         UserSearchbyTag
 // @namespace    pr0
-// @version      1.0.1
+// @version      1.0.2
 // @description  Search user by tag
 // @author       5yn74x
 // @match        https://pr0gramm.com/*
@@ -31,10 +31,18 @@ function getUserSuggestions(prefix) {
 
 function createDiv(users) {
     for (let i = 0; i < users.length; i++) {
-        users[i] = `<a href="/user/${users[i]}">${users[i]}</a>`;
+        users[i] = `<li style="list-style-type: none;"><a href="/user/${users[i]}">${users[i]} ●</a></li>`;
+        if ((i+1) % 5 === 0) {
+            users[i] += "</span><span>";
+        }
     }
     let elem = `
-<div style="background: #2a2e31;padding: 5px; text-align: center;">
+<div style="background: #2a2e31;padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 800px));
+    grid-row-gap: 20px;
+    text-align: center;
+;">
 <span>${users.join(" ")}</span>
 </div>
 `;
