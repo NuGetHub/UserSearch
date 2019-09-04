@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         UserSearchbyTag
 // @namespace    pr0
-// @version      1.0.2
+// @version      1.0.3
 // @description  Search user by tag
 // @author       5yn74x
 // @match        https://pr0gramm.com/*
@@ -37,14 +37,16 @@ function createDiv(users) {
         }
     }
     let elem = `
-<div style="background: #2a2e31;padding: 5px;
+<details style="background: #2a2e31;">
+<summary style="text-align: center;">Usersuche</summary>
+<div style="padding: 5px;
     display: grid;
     grid-template-columns: repeat(4, minmax(100px, 800px));
     grid-row-gap: 20px;
-    text-align: center;
-;">
+    padding-left: 5%;">
 <span>${users.join(" ")}</span>
 </div>
+</details>
 `;
     $('#main-view').prepend(elem);
 }
